@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+<ion-searchbar (ionInput)="filterListEvent($event)" placeholder="Search by Location"></ion-searchbar>
+
+  <div *ngIf="logs">
+    <ion-item *ngFor="let logs of logs | async">
+      <ion-label>
+        {{ logs.name }} <br> {{ logs.location }} <br>  {{ logs.date }} <br> {{logs.time}}
+      <p>
+      </p></ion-label>
+    </ion-item>
+  </div>
+</ion-content>
+
+<!-- <ion-footer >
+  <ion-row no-padding text-center>
+    <ion-col size="12">
+      <ion-button expand="block" fill="solid" color="primary" (click)="createPdf()">
+        Generate PDF
+      </ion-button>
+    </ion-col>
+    </ion-row>
+</ion-footer>
+<ion-footer >
+  <ion-row no-padding text-center>
+    <ion-col size="12">
+      <ion-button expand="block" fill="solid" color="primary" [disabled]="!pdfObj" (click)="downloadPdf()">
+        Download PDF
+      </ion-button>
+    </ion-col>
+    </ion-row>
+</ion-footer> -->

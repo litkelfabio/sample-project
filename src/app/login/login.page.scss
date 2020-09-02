@@ -1,0 +1,50 @@
+.bg{
+    --background:none;
+    background-color: #ffa07a;
+    // background-image: url('../../assets/img/stars.jpg');
+    background-position: center ;
+     background-repeat: no-repeat;
+      background-size: cover;
+}
+.logo{
+    width: 50%;
+    margin-left: 24%;
+    margin-top: 10%;
+    // height: 20%;
+    align-items: center;
+    position: center;
+}
+
+ion-button.button{
+    
+    text-align: left;
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+   
+}   
+ion-button.button1{
+     
+    text-align: center;
+    margin-top: 3%;
+    margin-left: 5%;
+   margin-bottom: 5%;
+   margin-right: 5%;
+}   
+.card{
+    box-shadow: none;
+    background: rgba(0,0, 0, 0.9);
+    border-radius: 3px;
+    margin-top: 0%;
+    width: 80%;
+    margin-left: 10%;
+
+}
+ion-button.back{
+    margin-top: 0.1cm;
+    margin-left: 0.1cm;
+    
+}
+ion-back-button{
+    width: 10%;
+}

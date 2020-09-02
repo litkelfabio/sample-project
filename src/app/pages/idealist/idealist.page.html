@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title>List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical = "bottom" horizontal = "end" slot="fixed">
+    <ion-fab-button href = "/idea-details">
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-searchbar (ionInput)="filterList($event)"></ion-searchbar>
+
+  <ion-list *ngIf="citizen">
+    <ion-item button [routerLink] = "['/idea-details', citizen.id]" *ngFor="let citizen of (citizen | async)">
+      <ion-thumbnail slot="start" >
+        <img [src]="citizen.imgURL" alt="" class="p">
+     </ion-thumbnail> {{citizen.name}}
+    </ion-item>
+  </ion-list>
+
+ 
+
+  <ion-list *ngIf="noCitizen">
+    <ion-text>No Citizens to Display</ion-text>
+  </ion-list>
+</ion-content>

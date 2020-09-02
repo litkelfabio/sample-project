@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Name</b></h1></ion-label>
+    <ion-input [(ngModel)]="user.name" rows="8"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Cellphone Number</b></h1></ion-label>
+    <ion-input [(ngModel)]="user.cp"></ion-input>
+  </ion-item>
+  <!-- <ion-item *ngIf="admin">
+      <ion-label position="stacked"><h1>Role</h1></ion-label>
+    <h5>{{user.role}}</h5>    
+  </ion-item>-->
+
+  <ion-item *ngIf="!admin">
+    <ion-label position="stacked"><h1><b>Role</b></h1></ion-label>
+    <ion-select placeholder="Select One"  [(ngModel)]="user.role">
+      <ion-select-option value="Personnel">Personnel</ion-select-option>
+      <ion-select-option value="Barangay Official">Barangay Official</ion-select-option>
+    </ion-select>
+  </ion-item> 
+
+  <ion-item *ngIf="admin"> 
+    <ion-label  position="stacked"><h1><b> Role </b> </h1></ion-label>
+    <br>
+    {{user.role}}
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Barangay</b></h1></ion-label>
+    <ion-input [(ngModel)]="user.barangay"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Username</b></h1></ion-label><br>
+    {{user.email}}
+  </ion-item>
+
+  
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Password</b></h1></ion-label>
+    <ion-input  [type]="showPassword ? 'text' : 'password'" [(ngModel)]="user.password"></ion-input>
+    <ion-icon [name] ="passwordToggleIcon" slot="end"
+    (click)="togglePassword()">
+    </ion-icon>
+  </ion-item>
+
+  <!-- <div *ngIf="!user.id">
+    <img [src]="imgURL" height="200" width="200"/>
+    <ion-button (click)="getCamera()">Camera</ion-button>
+    <ion-button (click)="getGallery()">Gallery</ion-button>
+  </div>-->
+</ion-content> 
+ 
+<ion-footer *ngIf="!user.id">
+  <ion-toolbar color="success">
+    <ion-button expand="full" fill="clear" color="light" (click) = "addUser()">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      Add user
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+ 
+<ion-footer *ngIf="user.id">
+  <ion-row no-padding text-center>
+    <ion-col size="6">
+      <ion-button expand="block" fill="outline" color="danger" (click)="deleteUser()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Delete
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" fill="solid" color="success" (click)="updateUser()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Update
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

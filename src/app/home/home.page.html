@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+
+  <!-- <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  </div> -->
+
+  <ion-button href="/idealist" expand="block" size="large" shape="round">List</ion-button>
+  <ion-button (click)="scanCode()" expand="block" size="large" shape="round">SCAN QR</ion-button>
+  <div *ngIf="scannedData">
+    <p>
+      Scanned Code Text : <b>{{ scannedData }}</b>
+    </p>
+  </div> 
+  <div  *ngIf="scannedData">
+    <ion-button fill="solid" color="primary" class="button4" expand="block" size="large" shape="round" [routerLink]="['/member',scannedData]">
+      <ion-icon name="person">
+      </ion-icon> &nbsp;View Member
+      </ion-button>
+    </div>
+  <ion-button href = "/idea-details" expand="block" size="large" shape="round">Add Citizen</ion-button>
+  <ion-button href = "/create-account" expand="block" size="small" shape="round">Sign Up</ion-button>
+  <ion-button href = "/user-list" expand="block" size="small" shape="round">USERS</ion-button>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/duty"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Citizen Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+<div *ngIf ="citizen">
+
+  <br>
+  <ion-item class="photo">
+       <img [src]="citizen.imgURL" alt="" class="p">
+  </ion-item>
+  
+  <br>
+
+    <ion-item>
+        <ion-label position="stacked"><h1> <b> Name </b> </h1></ion-label>
+      <h5>{{citizen.name}}</h5>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked"><h1> <b>Status </b></h1></ion-label>
+        <h5>{{citizen.status}}</h5>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked"><h1> <b> Barangay </b></h1></ion-label>
+        <h5> {{citizen.barangay}}</h5>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked"><h1> <b> Phone </b></h1></ion-label>
+        <h5> {{citizen.cp}}</h5>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label position="stacked"><h1> <b>QR Code </b> </h1></ion-label>
+        <h5> {{citizen.qr}}</h5>
+      </ion-item>
+      <!-- <ion-item>
+      <ion-input required type="text" [(ngModel)]="location" position="stacked" placeholder="Enter Location"> <ion-label> <h5>  </h5></ion-label></ion-input>
+    </ion-item>  -->
+    </div>
+
+    
+    
+
+     <div *ngIf ="!citizen">
+    <p> No Result</p>
+  </div>
+</ion-content>
+<ion-footer *ngIf ="citizen">
+  <ion-button (click)="checkIn()" size="large" expand="block"> <ion-icon name="save-outline" slot="start"></ion-icon> Check In</ion-button>
+</ion-footer>

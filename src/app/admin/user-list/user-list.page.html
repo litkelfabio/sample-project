@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      User List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical = "bottom" horizontal = "end" slot="fixed">
+    <ion-fab-button href = "/create-account">
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item button [routerLink] = "['/list', user.id]" *ngFor="let user of (user | async)">
+      {{user.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+      <ion-menu-button side="start" menuId="first" contentId="content1"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Welcome User
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-button href="/idealist" expand="block" size="large">List</ion-button>
+  <ion-button (click)="scanCode()" expand="block" size="large" >SCAN QR</ion-button>
+  <div  *ngIf="scannedData">
+    <ion-button fill="solid" color="primary" class="button4" expand="block" size="large"  [routerLink]="['/member',scannedData]">
+      <ion-icon name="person">
+      </ion-icon> &nbsp;View Member
+      </ion-button>
+    </div>
+  <ion-button href = "/idea-details" expand="block" size="large" >Add Citizen</ion-button>
+  <ion-button href = "/logs" expand="block" size="large" >Logs</ion-button>
+
+<br><ion-item>
+  <ion-label align-items="center"><b>BREAKDOWN OF CITIZENS IN NAIC</b></ion-label>
+</ion-item>
+
+  <ion-item>
+    <ion-label>PUI</ion-label>
+    <ion-label slot="end"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{pui}}</ion-label>
+</ion-item>
+
+<ion-item>
+  <ion-label>Covid Patient</ion-label>
+  <ion-label slot="end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{covid}}</ion-label>
+</ion-item>
+<ion-item>
+  <ion-label >Not Covid Patient</ion-label>
+  <ion-label slot="end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   {{no}}</ion-label>
+</ion-item>
+
+<ion-item>
+  <ion-label ><b>Total Records</b></ion-label>
+  <ion-label slot="end">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <b>{{all}}</b> </ion-label>
+</ion-item>
+</ion-content>

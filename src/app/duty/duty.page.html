@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+      <ion-buttons slot="start">
+      <ion-menu-button side="start" menuId="first" contentId="content1"></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Welcome Duty
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <br>
+  <br>
+  <ion-button (click)="scanCode()" expand="block" size="large" >SCAN QR</ion-button>
+  <div  *ngIf="scannedData">
+    <ion-button fill="solid" color="primary" class="button4" expand="block" size="large"  [routerLink]="['/duty-member',scannedData]">
+      <ion-icon name="person">
+      </ion-icon> &nbsp;View Member
+      </ion-button>
+    </div>
+</ion-content>

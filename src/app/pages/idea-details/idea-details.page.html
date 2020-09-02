@@ -1,0 +1,153 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/landing"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Citizen Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content padding>
+<img *ngIf="previewImg" [src]="previewImg"/>
+  <div *ngIf="citizen.imgURL" class ="photo">
+    <img src="{{previewImgList}}" >
+  </div>
+  <ion-item lines="none" >
+    <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+  </ion-item>
+  <br>
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Name</b></h1></ion-label>
+    <ion-input [(ngModel)]="citizen.name"></ion-input>
+  </ion-item>
+ 
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Status</b></h1></ion-label>
+    <ion-select placeholder="Select One"  [(ngModel)]="citizen.status">
+      <ion-select-option value="Covid Patient">Covid Patient</ion-select-option>
+      <ion-select-option value="PUI">PUI</ion-select-option>
+      <ion-select-option value="No Covid">No Covid</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Barangay</b></h1></ion-label>
+    <ion-input [(ngModel)]="citizen.barangay" rows="8" >
+     </ion-input>
+  </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked"><h1><b>Phone:</b></h1></ion-label>
+    <ion-input [(ngModel)]="citizen.cp" rows="8" >
+     </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="stacked"><h1><b>QR Code</b></h1></ion-label>
+    {{citizen.qr}}
+  </ion-item>
+
+  
+
+  <div *ngIf ="!citizen.id">
+    <ion-button class="button1" (click)="scanCode()" expand ="block" ><ion-icon name="barcode" >
+    </ion-icon> &nbsp;SCAN QR</ion-button>
+  </div>
+
+ <!-- <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add New Todo</ion-card-subtitle>
+    </ion-card-header> --> 
+
+    <!-- <ion-card-content>
+      <form class="ion-padding" (submit)="addTodo()">
+         <ion-item>
+      <ion-label position="stacked">Add New</ion-label> 
+          <ion-input name="todo" [(ngModel)]="newTodo" placeholder="todo"></ion-input>
+        </ion-item> -->
+
+        
+    
+        <!-- <ion-button type="submit">Add</ion-button>
+      </form>
+    </ion-card-content> 
+
+  </ion-card> -->
+  
+  
+
+<!-- </ion-content> 
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Todo List
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items | async">
+      <ion-thumbnail slot="start" *ngIf="item.imageUrl">
+        <img [src]="item.imageUrl" alt="">
+      </ion-thumbnail>
+      <ion-label>{{ item.title }}</ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="remove(item)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add New Todo</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form class="ion-padding" (submit)="addTodo()">
+        <ion-item>
+          <ion-label position="stacked">Add New</ion-label>
+          <ion-input name="todo" [(ngModel)]="newTodo" placeholder="todo"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+        </ion-item>
+    
+        <ion-button type="submit">Add</ion-button>
+      </form>
+    </ion-card-content>
+
+  </ion-card>-->
+
+
+</ion-content> 
+
+ 
+<ion-footer *ngIf="!citizen.id">
+  <ion-toolbar color="success">
+    <ion-button expand="full" fill="clear" color="light" (click) = "addCitizen()">
+      <ion-icon name="checkmark" slot="start"></ion-icon>
+      Add Citizen
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
+ 
+<ion-footer *ngIf="citizen.id">
+  <ion-row no-padding text-center>
+    <ion-col size="6">
+      <ion-button expand="block" fill="outline" color="danger" (click)="deleteCitizen()">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Delete
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button expand="block" fill="solid" color="success" (click)="updateCitizen()">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Update
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>
+

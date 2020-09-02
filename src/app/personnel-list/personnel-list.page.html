@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/personnelanding"></ion-back-button>
+    </ion-buttons>
+    <ion-title>List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical = "bottom" horizontal = "end" slot="fixed">
+    <ion-fab-button href = "/personeel-details">
+      <ion-icon name = "add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-list>
+    <ion-item button [routerLink] = "['/personeel-details', citizen.id]" *ngFor="let citizen of (citizen | async)">
+      <ion-thumbnail >
+        <img [src]="citizen.imgURL" alt="" class="p">
+     </ion-thumbnail>
+      {{citizen.name}}
+    </ion-item>
+  </ion-list>
+</ion-content>

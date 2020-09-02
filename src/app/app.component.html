@@ -1,0 +1,127 @@
+<ion-app>
+  <ion-menu side="start" menuId="first" contentId="contentId">
+      <ion-header>
+        <ion-toolbar color="secondary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+       <!-- <ion-list *ngFor="let pages of navigate">
+        <ion-menu-toggle auto-hide="true">
+          <ion-item [routerLink]="pages.url" routerDirection="forward">
+              <ion-icon [name]="pages.icon" slot="start"></ion-icon>
+                 {{pages.title}} 
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-item button  href="/menu/user-account" class="bg" >
+          <ion-icon slot="start" name="settings"class="bg" ></ion-icon>
+          <ion-label class="bg" routerLinkActive="active"> User Account Settings </ion-label>
+        </ion-item>
+    
+        <ion-item button  href="/menu/create-account" class="bg"  >
+          <ion-icon slot="start" name="person-add"class="bg" ></ion-icon>
+          <ion-label class="bg"  routerLinkActive="active"> Create Account </ion-label>
+        </ion-item> 
+      
+        </ion-list> 
+      
+  </ion-list>-->
+      <ion-menu-toggle>
+        <ion-item button  [routerLink]="['/landing']" class="bg" >
+          <ion-icon slot="start" name="home"class="bg" ></ion-icon>
+          <ion-label class="bg" routerLinkActive="active"> Home</ion-label>
+        </ion-item>
+
+        <ion-item button  href="/user-list" class="bg" >
+          <ion-icon slot="start" name="settings"class="bg" ></ion-icon>
+          <ion-label class="bg" routerLinkActive="active"> User List</ion-label>
+        </ion-item>
+    
+        <ion-item button  href="/create-account" class="bg"  >
+          <ion-icon slot="start" name="person-add"class="bg" ></ion-icon>
+          <ion-label class="bg"  routerLinkActive="active"> Create Account </ion-label>
+        </ion-item>
+
+        <ion-item button  (click)="logout()"class="bg" >
+          <ion-icon slot="start" name="log-out"class="bg" ></ion-icon>
+          <ion-label class="bg"> LOG OUT </ion-label>
+        </ion-item> 
+
+      </ion-menu-toggle>
+      </ion-content> 
+    </ion-menu>
+<ion-router-outlet id="contentId"></ion-router-outlet>
+
+<ion-menu side="start" menuId="second" contentId="content1">
+  <ion-header>
+    <ion-toolbar color ="secondary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+    <ion-menu-toggle  >
+    <ion-item button  [routerLink]="['/personnelanding']" class="bg" >
+      <ion-icon slot="start" name="home"class="bg" ></ion-icon>
+      <ion-label class="bg" routerLinkActive="active"> Home</ion-label>
+    </ion-item>
+
+
+    <!-- <ion-item button  href="/user-list" class="bg" >
+      <ion-icon slot="start" name="settings"class="bg" ></ion-icon>
+      <ion-label class="bg" routerLinkActive="active"> User List</ion-label>
+    </ion-item> -->
+
+    <ion-item button  (click)="logout()"class="bg" >
+      <ion-icon slot="start" name="log-out"class="bg" ></ion-icon>
+      <ion-label class="bg"> LOG OUT </ion-label>
+    </ion-item> 
+
+  </ion-menu-toggle>
+  </ion-content> 
+</ion-menu>
+
+
+
+<ion-menu side="start" menuId="third" contentId="content1">
+  <ion-header>
+    <ion-toolbar color ="secondary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+
+
+    <ion-menu-toggle  >
+    <ion-item button  [routerLink]="['/duty']" class="bg" >
+      <ion-icon slot="start" name="home"class="bg" ></ion-icon>
+      <ion-label class="bg" routerLinkActive="active"> Home</ion-label>
+    </ion-item>
+
+ 
+    <!-- <ion-item button  href="/user-list" class="bg" >
+      <ion-icon slot="start" name="settings"class="bg" ></ion-icon>
+      <ion-label class="bg" routerLinkActive="active"> User List</ion-label>
+    </ion-item> -->
+
+    <ion-item button  (click)="logout()"class="bg" >
+      <ion-icon slot="start" name="log-out"class="bg" ></ion-icon>
+      <ion-label class="bg"> LOG OUT </ion-label>
+    </ion-item> 
+
+  </ion-menu-toggle>
+  </ion-content> 
+</ion-menu>
+<ion-router-outlet id="content1"></ion-router-outlet>
+
+
+
+<div *ngIf = "showSplash" class="splash">
+  <div class="sk-folding-cube">
+    <div class="sk-cube1 sk-cube"></div>
+    <div class="sk-cube2 sk-cube"></div>
+    <div class="sk-cube4 sk-cube"></div>
+    <div class="sk-cube3 sk-cube"></div>
+  </div>
+</div>
+</ion-app>
